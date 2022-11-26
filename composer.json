@@ -1,0 +1,16 @@
+{
+    "name": "dustin/dto",
+    "description": "A simple way to create DTOs and exchange data between objects",
+    "keywords": [
+        "object",
+        "dto",
+        "data-exchange"
+    ],
+    "license": "GNU General Public License v3",
+    "authors": [{
+        "name": "Dustin Simon"
+    }],
+    "autoload": {
+        "psr-4": { "Dustin\\Dto\\": "src/" }
+    }
+}
