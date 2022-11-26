@@ -3,7 +3,7 @@
 namespace Dustin\Dto;
 
 /**
- * Encapsulation class which can only hold scalar values, arrays or other NestedEncapsulations.
+ * DTO class which can only hold scalar values, arrays or other NestedDtos.
  */
 class NestedDto extends Dto
 {
