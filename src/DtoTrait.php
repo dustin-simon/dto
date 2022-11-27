@@ -64,4 +64,9 @@ trait DtoTrait
 
         return $normalized;
     }
+
+    public function jsonSerialize()
+    {
+        return $this->toArray();
+    }
 }
