@@ -2,7 +2,7 @@
 
 namespace Dustin\Dto;
 
-interface DtoInterface extends \ArrayAccess, \IteratorAggregate
+interface DtoInterface extends \ArrayAccess, \IteratorAggregate, \JsonSerializable
 {
     /**
      * Sets the value of a field.
