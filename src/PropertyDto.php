@@ -2,6 +2,7 @@
 
 namespace Dustin\Dto;
 
+use Dustin\Dto\Exception\NotUnsettableException;
 use Dustin\Dto\Exception\PropertyNotExistsException;
 use Dustin\Dto\Exception\StaticPropertyException;
 
@@ -46,6 +47,7 @@ abstract class PropertyDto extends AbstractDto
     /**
      * @throws PropertyNotExistsException
      * @throws StaticPropertyException
+     * @throws NotUnsettableException
      */
     public function unset(string $field): void
     {
@@ -65,6 +67,10 @@ abstract class PropertyDto extends AbstractDto
 
         if (!$property->isInitialized($this)) {
             return;
+        }
+
+        if ($property->hasType() && !$property->getType()->allowsNull()) {
+            throw new NotUnsettableException($this, $field);
         }
 
         $property->setValue($this, null);
@@ -149,8 +155,8 @@ abstract class PropertyDto extends AbstractDto
 
     public function isEmpty(): bool
     {
-        return empty(array_filter($this->toArray(), function ($value) {
-            return is_array($value) ? !empty($value) : $value !== null;
+        return \empty(\array_filter($this->toArray(), function ($value) {
+            return \is_array($value) ? !\empty($value) : $value !== null;
         }));
     }
 }

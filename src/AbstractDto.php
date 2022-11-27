@@ -17,13 +17,13 @@ abstract class AbstractDto implements DtoInterface
 
     public function isEmpty(): bool
     {
-        return empty($this->toArray());
+        return \empty($this->toArray());
     }
 
     public function __clone()
     {
         foreach ($this->toArray() as $field => $value) {
-            if (is_object($value)) {
+            if (\is_object($value)) {
                 $this->set($field, clone $value);
             }
         }
