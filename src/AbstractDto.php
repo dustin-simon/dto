@@ -28,14 +28,4 @@ abstract class AbstractDto implements DtoInterface
             }
         }
     }
-
-    public function __serialize(): array
-    {
-        return array_map('serialize', $this->toArray());
-    }
-
-    public function __unserialize(array $data): void
-    {
-        $this->setList(array_map('unserialize', $data));
-    }
 }

@@ -22,7 +22,7 @@ interface DtoInterface extends \ArrayAccess, \IteratorAggregate, \JsonSerializab
     public function unset(string $field): void;
 
     /**
-     * Returns the value of a field or null if field does not exist.
+     * Returns the value of a field or null.
      *
      * @return mixed
      */
