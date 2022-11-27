@@ -145,9 +145,7 @@ abstract class PropertyDto extends AbstractDto
                 continue;
             }
 
-            $propertyName = $reflectionProperty->getName();
-
-            $fields[] = $propertyName;
+            $fields[] = $reflectionProperty->getName();
         }
 
         return $fields;
