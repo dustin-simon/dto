@@ -1,5 +1,6 @@
 {
     "name": "dustin/dto",
+    "version": "v1.0.0",
     "description": "A simple way to create DTOs and exchange data between objects",
     "keywords": [
         "object",
@@ -12,5 +13,8 @@
     }],
     "autoload": {
         "psr-4": { "Dustin\\Dto\\": "src/" }
+    },
+    "require": {
+        "php": ">=7.4"
     }
 }
