@@ -1,6 +1,6 @@
 {
     "name": "dustin/dto",
-    "version": "v1.0.0",
+    "version": "v1.1.0",
     "description": "A simple way to create DTOs and exchange data between objects",
     "keywords": [
         "object",
