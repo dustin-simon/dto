@@ -35,4 +35,19 @@ class Container extends PropertyDto implements \Countable
     {
         yield from $this->elements;
     }
+
+    public function jsonSerialize()
+    {
+        return $this->elements;
+    }
+
+    public function __serialize(): array
+    {
+        return array_map('serialize', $this->elements);
+    }
+
+    public function __unserialize(array $data): void
+    {
+        $this->setElements(array_map('unserialize', $data));
+    }
 }
