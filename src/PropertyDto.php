@@ -153,8 +153,8 @@ abstract class PropertyDto extends AbstractDto
 
     public function isEmpty(): bool
     {
-        return \empty(\array_filter($this->toArray(), function ($value) {
-            return \is_array($value) ? !\empty($value) : $value !== null;
+        return empty(\array_filter($this->toArray(), function ($value) {
+            return \is_array($value) ? !empty($value) : $value !== null;
         }));
     }
 }
