@@ -8,6 +8,7 @@ Their are two types of DTOs which can be used:
 ## General
 
 **ArrayAccess**
+
 You can use all DTOs like an array, like:
 
     $dto = new Dto();
@@ -15,6 +16,7 @@ You can use all DTOs like an array, like:
     $bar = $dto['bar'];
     
 **Iterator**
+
 You can iterate over all fields/properties of a DTO:
 
     $dto = new Dto(['foo' => $foo, 'bar' => $bar]);
@@ -24,14 +26,17 @@ You can iterate over all fields/properties of a DTO:
     }
     
 **JsonSerializable and serialization**
+
 Each DTO is serializable and unserializable or `json_encode`-able.
 
 **Cloning**
+
 Cloning a DTO will also clone it's inner objects.
 
 ## Create a DTO
 
 **Array-based DTOs**
+
 You can use the `Dustin\Dto\Dto` class for creating flexible DTOs which can hold any value.
 
     use Dustin\Dto\Dto;
@@ -39,6 +44,7 @@ You can use the `Dustin\Dto\Dto` class for creating flexible DTOs which can hold
     $dto = new Dto(['foo' => $foo]);
     
 **Restrict inner objects to other DTOs**
+
 For some reasons like serialization you can restrict inner objects of a DTO to other DTOs using the `NestedDto`
 
     use Dustin\Dto\NestedDto;
@@ -49,6 +55,7 @@ For some reasons like serialization you can restrict inner objects of a DTO to o
     // will throw an exception if AnyObject does not inherit from NestedDto
     
 **Restrict fields**
+
 Inheriting from `Dto` or from `NestedDto` allows to restrict the fields your class can hold:
 
     class MyDto extends Dto {
@@ -63,19 +70,20 @@ Inheriting from `Dto` or from `NestedDto` allows to restrict the fields your cla
     // will throw an exception since field 'hello' is not allowed
 
 **Create DTOs with properties**
+
 If you want to create a DTO class which holds it's data in properties inherit from `Dustin\Dto\PropertyDto`.
 
     class MyDto extends PropertyDto {
     
-	    protected $foo;
-		
-		public function setFoo(string $foo) {
-			$this->foo = $foo;
-		}
-		
-		public function getFoo(): ?string {
-			return $this->foo;
-		}
+        protected $foo;
+        
+        public function setFoo(string $foo) {
+            $this->foo = $foo;
+        }
+        
+        public function getFoo(): ?string {
+            return $this->foo;
+        }
     }
 Using the DTO-methods  `set()`, `get()` and `add()` will call your setter/getter-methods if available.
 
@@ -114,6 +122,7 @@ A container is a DTO which holds a list of elements. It does not take care of ke
 ## Usage
 
 **Create an object**
+
 	DTOs can be initialized with values in their constructor.
 	
 	$dto = new Dto();
